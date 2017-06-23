@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>搜索结果 <a href="/" style="font-weight:bold; font-size: 16pt">返回首页</a></h1>
+<p>共{{schools|length}}个结果</p>
+{% for s in schools %}
+<dl class="well">
+    <dt>名称</dt>
+    <dd>{{s.name|e}}</dt>
+    <dt>网址</dt>
+    <dd><a href="{{s.url|e}}">{{s.url|e}}</a></dd>
+    {% if s.tofu %}
+    <dt>托福要求</dt>
+    <dd>{{s.tofu|e}}</dd>
+    {% endif %}
+    {% if s.yasi %}
+    <dt>雅思要求</dt>
+    <dd>{{s.yasi|e}}</dd>
+    {% endif %}
+    {% for attr in s.attrs %}
+    <dd>{{attr|e}}</dd>
+    {% endfor %}
+</dl>
+{% endfor %}
+{% endblock %}

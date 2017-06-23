@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>搜索结果 <a href="/" style="font-weight:bold; font-size: 16pt">返回首页</a></h1>
+<p>共{{meds|length}}个结果</p>
+{% for m in meds %}
+<dl class="well">
+    {% for md in m %}
+    <dt>{{md[0]|e}}</dt>
+    <dd>{{md[1]|e}}</dt>
+    {% endfor %}
+</dl>
+{% endfor %}
+{% endblock %}
